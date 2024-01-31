@@ -2,7 +2,7 @@
 Author: Joshua Wang
 Course: CSCI-136
 Instructor: Tong Yi
-Assignment: Lab 1D
+Assignment: Lab 1 D
 
 This program will check if the the year and month you enter is leap year or not and give you how many days is in that month
 */
@@ -31,7 +31,7 @@ int main() {
     }
 
     cout << month << "days" << endl;
-    cout<<endl;
+    
 
     return 0;
 }
