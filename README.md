@@ -18,6 +18,7 @@ In C++, it's essential for coders to familiarize themselves with key functions. 
 
 [link]: https://maryash.github.io/135/slides/CheatSheet.pdf
 
+Cay Horstmann - Brief C++_ Late Objects (2017).pdf
 
 
 
