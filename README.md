@@ -18,8 +18,11 @@ In C++, it's essential for coders to familiarize themselves with key functions. 
 
 [link]: https://maryash.github.io/135/slides/CheatSheet.pdf
 
-Cay Horstmann - Brief C++_ Late Objects (2017).pdf
+## Text book
 
+We use the [C++][link] textbook for homework assignment
+
+[link]:https://github.com/joshboyye/csci135/blob/3ae2dfc83d6c217a926b3968b91a99a9a104a0df/Cay%20Horstmann%20-%20Brief%20C%2B%2B_%20Late%20Objects%20(2017).pdf
 
 
 
