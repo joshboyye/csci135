@@ -11,11 +11,10 @@ This program will print your entered names
 using namespace std;
 
 int main(){
-    string a, b, c;
-    cout << "Barbara" <<endl;
-    cout << "Paul" <<endl;
-    cout << "Karen" <<endl;
-
-    return 0;
+    string a,b,c;
+    cout << "Enter your three best freind\n";
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    cout << a << " " << b << " " << c << " " <<endl;
 }
-
