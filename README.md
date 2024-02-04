@@ -24,15 +24,7 @@ We use the [C++][textbook] textbook for homework assignment
 
 [textbook]:https://github.com/joshboyye/csci135/blob/3ae2dfc83d6c217a926b3968b91a99a9a104a0df/Cay%20Horstmann%20-%20Brief%20C%2B%2B_%20Late%20Objects%20(2017).pdf
 
-## How to compile c++ files 
-1. You need to run bash or zsh
-2. use `cd` to get into the **directory** that you made
-3. Then type `g++ "name of your cpp name" -o "name of your directory"` for example `g++ helloworld.cpp -o hello`
-4. Execute just type `./hello` or `./`
 
-[Reference][link] from codecademy
+[Reference][Reference] from codecademy
 
-[link]:https://www.codecademy.com/article/cpp-compile-execute-locally
-
-
-
+[Reference]:https://www.codecademy.com/article/cpp-compile-execute-locally
