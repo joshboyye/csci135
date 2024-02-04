@@ -2,9 +2,9 @@
 Spring24 CSCI135 class 😢
 
 # Course Materials
-Everything is in the [CourseWebsite][courselink]
+Everything is in the [CourseWebsite][Link]
 
-[corselink]: https://tong-yee.github.io/135/2024_spring.html
+[Link]: https://tong-yee.github.io/135/2023_fall.html
 
 # Class assignments 
 
