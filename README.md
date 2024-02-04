@@ -1,12 +1,12 @@
-# CSCI135 
-Spring24 CSCI135 class 😢
+# Repo Info
+This repo is for Spring24 **CSCI135** class 😢
 
-# Course Materials
+## Course Materials
 Everything is in the [CourseWebsite][Link]
 
 [Link]: https://tong-yee.github.io/135/2024_spring.html
 
-# Class assignments 
+## Class assignments 
 
 In this course, Gradescope is the platform we utilize for submitting homework and projects. Access the link here [gradescope][googlelink]
 
@@ -24,6 +24,15 @@ We use the [C++][textbook] textbook for homework assignment
 
 [textbook]:https://github.com/joshboyye/csci135/blob/3ae2dfc83d6c217a926b3968b91a99a9a104a0df/Cay%20Horstmann%20-%20Brief%20C%2B%2B_%20Late%20Objects%20(2017).pdf
 
+## How to compile c++ files 
+1. You need to run bash or zsh
+2. use `cd` to get into the **directory** that you made
+3. Then type `g++ "name of your cpp name" -o "name of your directory"` for example `g++ helloworld.cpp -o hello`
+4. Execute just type `./hello` or `./`
+
+[Reference][link] from codecademy
+
+[link]:https://www.codecademy.com/article/cpp-compile-execute-locally
 
 
 
