@@ -1,11 +1,5 @@
-/*
-Author: Joshua Wang
-Course: CSCI-135
-Instructor: Tong Yi
-Assignment: Project1A
+//This program will ask the user to enter the total number of questions to ask, and then it will ask that many questions. For each question, it will generate two random numbers between 0 and 9, and then it will ask the user to enter the result of adding, subtracting, multiplying, dividing, or taking the remainder of the two numbers. It will then check the user's answer and print "true" if the answer is correct, and "false" otherwise. After asking the specified number of questions, it will print the percentage of questions that were answered correctly, and it will print the letter grade that corresponds to that percentage.
 
-This program will ask the user to enter the total number of questions to ask, and then it will generate that many random arithmetic questions, and ask the user to solve them. The program will then print the correctness of the user's answers.
-*/
 
 #include <iostream>
 #include <cstdlib>
@@ -17,14 +11,14 @@ int getPositiveInteger(){
     do{
         cout << "Enter the total number of questions to ask:";
         cin >> input;
-        cout << "The number of questions cannot be zero or negative. Re-enter: \n";
-
+        if(input <= 0){
+            cout << "The number of questions cannot be zero or negative. Re-enter: \n";
+        }
     }while(input <= 0);
     return input;
 }
 
-void generateQuestionAndCheckAnswer(int &c){
-    
+void generateQuestionAndCheckAnswer(int &correct){
     char operators[] = {'+', '-', '*', '/', '%'};
     int random = rand() %5;
     char op = operators[random];
@@ -57,37 +51,36 @@ void generateQuestionAndCheckAnswer(int &c){
             break;
     }
     cout << "What is " << operand1 << " " << op << " " << operand2 << "?\n";
-        int answer;
-        cin >> answer;
+    int answer;
+    cin >> answer;
 
-        if(answer == result){
-            cout<< "true!\n";
-        }else{
-            cout<< "false!\n";
-        }
-
-
+    if(answer == result){
+        cout<< "true\n";
+        correct++;
+    }else{
+        cout<< "false\n";
+    }
 }
 
-void grate(double corrent){
-    if(corrent >= 90){
+void grate(double correct){
+    cout << "letter grade: ";
+    if(correct >= 90){
         cout << 'A';
-    }else if (corrent >= 80){
+    }else if (correct >= 80){
         cout << 'B';
-    }else if (corrent >= 70){
+    }else if (correct >= 70){
         cout << 'C';
-    }else if (corrent >= 60){
+    }else if (correct >= 60){
         cout << 'D';
     }else{
         cout << 'F';
     }
+    cout << "\n";
 }
-
 
 int main(){
     srand(time(0));
     
-    cout << "Enter the total number of questions to ask:";
     int input = getPositiveInteger();
     
     int correct = 0;
@@ -95,11 +88,9 @@ int main(){
         generateQuestionAndCheckAnswer(correct);
     }
     double correctness = (double)correct / input * 100;
-    cout << "Correctness: " << correctness << "%\n";
+    cout << "percentage correct: " << correctness << "%\n";
 
     grate(correctness);
-
-    
 
     return 0;
 }
