@@ -14,15 +14,16 @@ int main(){
     int width, height;
     cout << "Input width:";
     cin >> width;
-    cout << " Input height:";
+    cout << "Input height:";
     cin >> height;
-    
+    cout << "Shape:\n";
     for (int i=0; i<height; i++){
         cout<< "*";
-        for(int j=0; j<width; j++){
+        for(int j=0; j<width-1; j++){
             cout << "*";
         }
         cout<<endl;
     }
 
 }
+
