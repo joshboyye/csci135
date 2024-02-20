@@ -30,8 +30,7 @@ We use the [C++][textbook] textbook for homework assignment
 2. use `cd` to get into the **directory** that you made
 3. Then type `g++ "name of your cpp name" -o "name of your directory"` for example `g++ helloworld.cpp -o hello`
 4. Execute just type `./hello` or `./`
-5. if it doesn't work probably there is wrong with the terminal or the bash 
+5. if it doesn't work probably there is something wrong with the terminal or the bash 
 
 [Reference][Reference] from codecademy
-
 [Reference]:https://www.codecademy.com/article/cpp-compile-execute-locally
