@@ -2,7 +2,7 @@
 Author: Joshua Wang
 Course: CSCI-135
 Instructor: Tong Yi
-Assignment: Lab5
+Assignment: Lab5E
 
 */
 
@@ -47,12 +47,20 @@ int countPrimes(int a, int b) {
     }
     return count;
 }
+bool isTwinPrime(int n) {
+    if (isPrime(n) && (isPrime(n - 2) || isPrime(n + 2))) {
+        return true;
+    }
+    return false;
+}
 int main() {
-    int a, b;
-    cout << "Enter the start of the range: ";
+    int a;
+    cout << "Enter a number: ";
     cin >> a;
-    cout << "Enter the end of the range: ";
-    cin >> b;
-    cout << "The number of prime numbers in the range is: " << countPrimes(a, b) << endl;
+    if (isTwinPrime(a)) {
+        cout << "The number is a twin prime." << endl;
+    } else {
+        cout << "The number is not a twin prime." << endl;
+    }
     return 0;
 }
