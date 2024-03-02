@@ -7,6 +7,7 @@ Assignment: Lab5E
 */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 bool isDivisibleBy(int n, int d){
@@ -24,7 +25,7 @@ bool isPrime(int n) {
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i < n; i++) {
+    for (int i = 2; i <= sqrt(n); i++) {
         if (n % i == 0) {
             return false;
         }
@@ -38,6 +39,7 @@ int nextPrime(int n) {
     }
     return next;
 }
+
 int countPrimes(int a, int b) {
     int count = 0;
     for (int i = a; i <= b; i++) {
@@ -53,14 +55,19 @@ bool isTwinPrime(int n) {
     }
     return false;
 }
+int nextTwinPrime(int n) {
+    int next = n + 1;
+    while (!isTwinPrime(next)) {
+        next++;
+    }
+    return next;
+}
 int main() {
     int a;
     cout << "Enter a number: ";
     cin >> a;
-    if (isTwinPrime(a)) {
-        cout << "The number is a twin prime." << endl;
-    } else {
-        cout << "The number is not a twin prime." << endl;
-    }
+    cout << "The next twin prime number is: " << nextTwinPrime(a) << endl;
     return 0;
 }
+
+
