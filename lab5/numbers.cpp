@@ -4,8 +4,6 @@ Course: CSCI-135
 Instructor: Tong Yi
 Assignment: Lab5
 
-This program will ask the user to input a number and then output the next prime number.
-
 */
 
 #include <iostream>
@@ -40,10 +38,21 @@ int nextPrime(int n) {
     }
     return next;
 }
+int countPrimes(int a, int b) {
+    int count = 0;
+    for (int i = a; i <= b; i++) {
+        if (isPrime(i)) {
+            count++;
+        }
+    }
+    return count;
+}
 int main() {
-    int a;
-    cout << "Enter a number: ";
+    int a, b;
+    cout << "Enter the start of the range: ";
     cin >> a;
-    cout << "The next prime number is: " << nextPrime(a) << endl;
+    cout << "Enter the end of the range: ";
+    cin >> b;
+    cout << "The number of prime numbers in the range is: " << countPrimes(a, b) << endl;
     return 0;
 }
