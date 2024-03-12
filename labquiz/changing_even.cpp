@@ -13,7 +13,7 @@ int main(){
     cout << "Enter a name:";
     getline(cin,a);
 
-    for(char c : a){
+    for(auto& c : a){
         if(c%2==1){
             cout << c;
         }

@@ -14,6 +14,11 @@ int main() {
 
     // Access elements using array notation
     cout << "Elements of the vector: ";
+    for(auto& i : myVector){
+        cout << i << " ";
+    }
+    cout << endl;
+
     for (int i = 0; i < myVector.size(); ++i) {
         cout << myVector[i] << " ";
     }
