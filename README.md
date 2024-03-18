@@ -32,5 +32,6 @@ We use the [C++][textbook] textbook for homework assignment
 4. Execute just type `./hello` or `./`
 5. if it doesn't work probably there is something wrong with the terminal or the bash 
 
-[Reference][Reference] from codecademy
-[Reference]:https://www.codecademy.com/article/cpp-compile-execute-locally
+[Reference][from] from Codecademy
+
+[from]:https://www.codecademy.com/article/cpp-compile-execute-locally
