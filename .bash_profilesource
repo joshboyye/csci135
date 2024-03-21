@@ -1,0 +1,1 @@
+wget -O $ZSH_CUSTOM/themes/common.zsh-theme https://raw.githubusercontent.com/madhavchoudhary/clear/master/clear.zsh-theme
