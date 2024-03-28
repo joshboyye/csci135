@@ -2,7 +2,7 @@
 Author: Joshua Wang
 Course: CSCI-136
 Instructor: Tong Yi
-Assignment: Lab 8 Task F
+Assignment: Lab 8 Task G
 
 This program will read a PGM image from the file "inImage.pgm" and output a modified image to "outImage.pgm"
 */
@@ -14,7 +14,13 @@ using namespace std;
 
 const int MAX_H = 512;
 const int MAX_W = 512;
-const int PIXEL_SIZE = 2; 
+
+const int KERNEL_SIZE = 3;
+const int KERNEL[KERNEL_SIZE][KERNEL_SIZE] = {
+    {0, 0, 0},
+    {0, 1, 0},
+    {0, 0, 0}
+};
 
 void readImage(int image[MAX_H][MAX_W], int &height, int &width) {
     char c;
@@ -70,33 +76,34 @@ void writeImage(int image[MAX_H][MAX_W], int height, int width) {
     ostr.close();
 }
 
-void pixelate(int image[MAX_H][MAX_W], int height, int width) {
-    int pixelSum, pixelAverage;
-    int pixelCount;
+void applyKernel(int image[MAX_H][MAX_W], int height, int width) {
+    int filteredImage[MAX_H][MAX_W];
 
-    for (int row = 0; row < height; row += PIXEL_SIZE) {
-        for (int col = 0; col < width; col += PIXEL_SIZE) {
-            pixelSum = 0;
-            pixelCount = 0;
+    for (int row = 0; row < height; row++) {
+        for (int col = 0; col < width; col++) {
+            int sum = 0;
+            int count = 0;
 
-            for (int i = row; i < row + PIXEL_SIZE; i++) {
-                for (int j = col; j < col + PIXEL_SIZE; j++) {
-                    if (i < height && j < width) {
-                        pixelSum += image[i][j];
-                        pixelCount++;
+            for (int i = -KERNEL_SIZE / 2; i <= KERNEL_SIZE / 2; i++) {
+                for (int j = -KERNEL_SIZE / 2; j <= KERNEL_SIZE / 2; j++) {
+                    int neighborRow = row + i;
+                    int neighborCol = col + j;
+
+                    if (neighborRow >= 0 && neighborRow < height &&
+                        neighborCol >= 0 && neighborCol < width) {
+                        sum += image[neighborRow][neighborCol] * KERNEL[i + KERNEL_SIZE / 2][j + KERNEL_SIZE / 2];
+                        count++;
                     }
                 }
             }
 
-            pixelAverage = pixelSum / pixelCount;
+            filteredImage[row][col] = sum / count;
+        }
+    }
 
-            for (int i = row; i < row + PIXEL_SIZE; i++) {
-                for (int j = col; j < col + PIXEL_SIZE; j++) {
-                    if (i < height && j < width) {
-                        image[i][j] = pixelAverage;
-                    }
-                }
-            }
+    for (int row = 0; row < height; row++) {
+        for (int col = 0; col < width; col++) {
+            image[row][col] = filteredImage[row][col];
         }
     }
 }
@@ -107,7 +114,7 @@ int main() {
 
     readImage(img, h, w);
 
-    pixelate(img, h, w);
+    applyKernel(img, h, w);
 
     writeImage(img, h, w);
 
