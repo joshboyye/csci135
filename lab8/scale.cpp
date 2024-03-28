@@ -1,3 +1,11 @@
+/*
+Author: Joshua Wang
+Course: CSCI-135
+Instructor: Tong Yi
+Assignment: Lab 8 Task E
+Description: The program reads a PGM image from the file "inImage.pgm", and outputs a modified image to "outImage.pgm"
+
+*/
 #include <iostream>
 #include <cassert>
 #include <cstdlib>
@@ -39,7 +47,7 @@ void readImage(int image[MAX_H][MAX_W], int &height, int &width) {
     return;
 }
 
-void writeImage(int image[MAX_H][MAX_W], int height, int width) {
+void writeImage(int image[MAX_H * 2][MAX_W * 2], int height, int width) {
     ofstream ostr;
     ostr.open("outImage.pgm");
     if (ostr.fail()) {
@@ -64,6 +72,7 @@ void writeImage(int image[MAX_H][MAX_W], int height, int width) {
     return;
 }
 
+
 int main() {
 
     int img[MAX_H][MAX_W];
@@ -71,11 +80,11 @@ int main() {
 
     readImage(img, h, w);
 
-    int out[MAX_H * 2][MAX_W * 2]; // New dimensions
+    int out[MAX_H * 2][MAX_W * 2]; 
+
 
     for(int row = 0; row < h; row++) {
         for(int col = 0; col < w; col++) {
-            // Copy each pixel as a small 2x2 square in the output
             out[row * 2][col * 2] = img[row][col];
             out[row * 2][col * 2 + 1] = img[row][col];
             out[row * 2 + 1][col * 2] = img[row][col];
@@ -83,6 +92,6 @@ int main() {
         }
     }
 
-    writeImage(out, h * 2, w * 2); // Writing the scaled image
-
+    writeImage(out, h * 2, w * 2); 
+    return 0;
 }

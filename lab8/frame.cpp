@@ -89,15 +89,17 @@ int main() {
 
     // Top and bottom frames
     for(int col = 0; col < w; col++) {
-        out[0][col] = 255; // Top frame
-        out[h - 1][col] = 255; // Bottom frame
+        out[0][col] = 255; 
+        out[h - 1][col] = 255; 
     }
 
-    // Left and right frames
-    for(int row = 0; row < h; row++) {
-        out[row][0] = 255; // Left frame
-        out[row][w - 1] = 255; // Right frame
+
+    for(int row = 1; row < h - 1; row++) { 
+        out[row][0] = 255; 
+        out[row][w - 1] = 255; 
     }
 
     writeImage(out, h, w);
+    return 0;
 }
+
