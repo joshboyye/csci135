@@ -72,6 +72,7 @@ void writeImage(int image[MAX_H][MAX_W], int height, int width) {
     return;
 }
 
+
 int main() {
 
     int img[MAX_H][MAX_W];
@@ -87,19 +88,18 @@ int main() {
         }
     }
 
-    // Top and bottom frames
+
     for(int col = 0; col < w; col++) {
-        out[0][col] = 255; 
+        out[0][col] = 255; // 
         out[h - 1][col] = 255; 
     }
 
 
-    for(int row = 1; row < h - 1; row++) { 
+    for(int row = 1; row < h - 1; row++) {
         out[row][0] = 255; 
         out[row][w - 1] = 255; 
     }
 
     writeImage(out, h, w);
-    return 0;
 }
 
