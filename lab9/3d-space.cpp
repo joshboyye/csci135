@@ -31,11 +31,13 @@ Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2) {
         return p2;
     }
 }
+//lab 9 task C
 void move(Coord3D *ppos, Coord3D *pvel, double dt) {
     ppos->x = ppos->x + pvel->x * dt;
     ppos->y = ppos->y + pvel->y * dt;
     ppos->z = ppos->z + pvel->z * dt;
 }
+// Lab9 task C
 int main() {
     Coord3D pos = {0, 0, 100.0};
     Coord3D vel = {1, -5, 0.2};
