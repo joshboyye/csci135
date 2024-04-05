@@ -3,9 +3,9 @@
 Author: Joshua Wang
 Course: CSCI-135
 Instructor: Tong Yi
-Assignment: Lab9B
+Assignment: Lab9C
 
-This program will compare two points in 3D space and determine which point is farther from the origin.
+This program will create a class Coord3D that stores the x, y, and z coordinates of a point in 3D space. It will also have functions that calculate the distance from the origin, compare two points to see which is farther from the origin, and move a point in 3D space.
 */
 #include <iostream>
 #include <cmath>
@@ -31,15 +31,16 @@ Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2) {
         return p2;
     }
 }
-
+void move(Coord3D *ppos, Coord3D *pvel, double dt) {
+    ppos->x = ppos->x + pvel->x * dt;
+    ppos->y = ppos->y + pvel->y * dt;
+    ppos->z = ppos->z + pvel->z * dt;
+}
 int main() {
-    Coord3D pointP = {10, 20, 30};
-    Coord3D pointQ = {-20, 21, -22};
+    Coord3D pos = {0, 0, 100.0};
+    Coord3D vel = {1, -5, 0.2};
 
-    cout << "Address of P: " << &pointP << endl;
-    cout << "Address of Q: " << &pointQ << endl << endl;
-
-    Coord3D * ans = fartherFromOrigin(&pointP, &pointQ);
-   
-    cout << "ans = " << ans << endl; // So which point is farther?
+    move(&pos, &vel, 2.0); // object pos gets changed
+    cout << pos.x << " " << pos.y << " " << pos.z << endl;
+    // prints: 2 -10 100.4
 }
