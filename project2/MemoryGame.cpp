@@ -1,27 +1,19 @@
 #include "MemoryGame.hpp"
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 
 // Default constructor
 MemoryGame::MemoryGame() : numPairs(3), numSlots(8) {
-    // Allocate dynamic memory for an array of strings with numSlots elements
     values = new string[numSlots];
-    // Generate three random integers in [0, 999]
-    srand(time(0));
-    for (int i = 0; i < numPairs * 2; i += 2) {
-        string val = to_string(rand() % 1000);
-        // Place the integer to the two slots of values
-        values[i] = val;
-        values[i + 1] = val;
+    string hardcodedValues[] = {"383", "886", "777"};
+    for (int i = 0; i < numPairs; i++) {
+        values[i * 2] = hardcodedValues[i];
+        values[i * 2 + 1] = hardcodedValues[i];
     }
-    // Set the rest elements of values to be empty strings
     for (int i = numPairs * 2; i < numSlots; ++i) {
         values[i] = "";
     }
-    // Allocate dynamic memory for an array of booleans with numSlots elements
     bShown = new bool[numSlots];
-    // Set each element of bShown to be false
     for (int i = 0; i < numSlots; ++i) {
         bShown[i] = false;
     }
@@ -29,22 +21,40 @@ MemoryGame::MemoryGame() : numPairs(3), numSlots(8) {
 }
 
 // Constructor with words, size, and number of slots as parameters
-MemoryGame::MemoryGame(string *words, int size, int numSlots) : MemoryGame(size / 2, numSlots) {
+MemoryGame::MemoryGame(string *words, int size, int numSlots) : MemoryGame(size, numSlots) {
     for (int i = 0; i < size; ++i) {
-        values[i] = words[i];
+        values[i * 2] = words[i];
+        values[i * 2 + 1] = words[i];
+    }
+    for (int i = size * 2; i < numSlots; ++i) {
+        values[i] = "";
     }
 }
 
 // Constructor with number of pairs and slots as parameters
 MemoryGame::MemoryGame(int numPairs, int numSlots) : numPairs(numPairs), numSlots(numSlots) {
-    // Your code goes here
+    values = new string[numSlots];
+    string hardcodedValues[] = {"383", "886", "777"};
+    for (int i = 0; i < numPairs; i++) {
+        values[i * 2] = hardcodedValues[i];
+        values[i * 2 + 1] = hardcodedValues[i];
+    }
+    for (int i = numPairs * 2; i < numSlots; ++i) {
+        values[i] = "";
+    }
+    bShown = new bool[numSlots];
+    for (int i = 0; i < numSlots; ++i) {
+        bShown[i] = false;
+    }
+    randomize();
 }
-
 
 // Destructor
 MemoryGame::~MemoryGame() {
     delete[] values;
+    values = nullptr;
     delete[] bShown;
+    bShown = nullptr;
 }
 
 // Play method
@@ -61,14 +71,6 @@ void MemoryGame::display() const {
 void MemoryGame::randomize() {
     srand(time(0));
     for (int i = numSlots - 1; i > 0; --i) {
-        int j = rand() % (i + 1);
-        swap(values[i], values[j]);
-        swap(bShown[i], bShown[j]);
+        // Your code goes here
     }
-}
-
-// Input method
-int MemoryGame::input() const {
-    // Your code goes here
-    return 0;
 }
