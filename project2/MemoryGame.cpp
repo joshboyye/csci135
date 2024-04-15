@@ -59,18 +59,40 @@ MemoryGame::~MemoryGame() {
 
 // Play method
 void MemoryGame::play() {
-    // Your code goes here
+    randomize();
+    while (true) {
+        display();
+        int first, second;
+        cout << "Enter two distinct indices: ";
+        cin >> first >> second;
+        if (first == second || first < 0 || first >= numSlots || second < 0 || second >= numSlots) {
+            cout << "Invalid indices. Please try again.\n";
+            continue;
+        }
+        if (values[first] == values[second]) {
+            cout << "Match found!\n";
+            return;
+        } else {
+            cout << "No match. Please try again.\n";
+        }
+    }
 }
 
 // Display method
 void MemoryGame::display() const {
-    // Your code goes here
+    for (int i = 0; i < numSlots; ++i) {
+        cout << i << ": " << values[i] << '\n';
+    }
 }
 
 // Randomize method
 void MemoryGame::randomize() {
-    srand(time(0));
-    for (int i = numSlots - 1; i > 0; --i) {
-        // Your code goes here
+    int size = numSlots;
+    while (size > 1) {
+        int index = rand() % size;
+        string temp = values[index];
+        values[index] = values[size - 1];
+        values[size - 1] = temp;
+        --size;
     }
 }
