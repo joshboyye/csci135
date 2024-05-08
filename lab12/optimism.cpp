@@ -2,7 +2,7 @@
 Author: Joshua Wang
 Course: CSCI-135
 Instructor: Tong Yi
-Assignment: Lab12 B
+Assignment: Lab 12 
 
 This program will create a function that generates a vector of integers from 0 to n-1.
 

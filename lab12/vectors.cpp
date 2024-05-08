@@ -12,10 +12,13 @@ This program will create a function that generates a vector of integers from 0 t
 
 std::vector<int> makeVector(int n) {
     std::vector<int> result;
+    // Add numbers from 0 to n-1
     for (int i = 0; i < n; ++i) {
         result.push_back(i);
+        // result.push_back(i * 2); // Uncomment this line to generate even numbers
     }
     return result;
+    // return {1, 2, 3, 4, 5}; // Uncomment this line to return a vector with 1, 2, 3, 4, 5
 }
 
 int main() {
