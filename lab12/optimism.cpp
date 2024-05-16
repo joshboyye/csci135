@@ -13,8 +13,10 @@ This program will create a function that generates a vector of integers from 0 t
 
 using namespace std;
 
-vector<int> goodVibes(const vector<int>& v) {
+vector<int> goodVibes(vector<int> v) {
+    // Create a new vector to store the positive numbers
     vector<int> result;
+    //  Add positive numbers to the new vector
     for (int num : v) {
         if (num > 0) {
             result.push_back(num);
@@ -33,7 +35,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "Filtered vector (positive integers only): ";
+    cout << "Filtered vector: ";
     for (int num : filtered) {
         cout << num << " ";
     }
