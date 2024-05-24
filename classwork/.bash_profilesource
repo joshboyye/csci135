@@ -1,0 +1,83 @@
+
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+#include <string>
+#include "Road.hpp"
+
+Road::Road(){
+    // assign method of the vector class
+    // takes vector block and sets 70 empty space characters 
+    blocks.assign(70 , ' '); 
+}
+Road::Road(int length){
+    if(length <= 0){ 
+        length = 70; 
+    }  
+    blocks.assign(length , ' ');
+}
+void Road::mark(int index, char ch){
+    if(index >= 0 && index < blocks.size()){
+        blocks[index] = ch;
+    }
+}
+void Road::display() const{
+    for(int i = 0; i < blocks.size(); i++){
+        char element = blocks[i];
+        std::cout << element; 
+    }
+    std::cout << std::endl;
+}
+int Road::length() const{
+    return blocks.size();
+
+}
+/*
+Author: Joshua Wang
+Course: CSCI-135
+Instructor: Tong Yi
+Assignment: Lab 13
+
+This program will create a function that prints a range of numbers and a function that sums a range of numbers.
+*/
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool nestedParens(string s) {
+    stack<char> parenthesesStack;
+    int i = 0;
+
+    while (i < s.size()) {
+        char c = s[i];
+
+        if (c == '(') {
+            parenthesesStack.push(c);
+        } else if (c == ')') {
+            if (parenthesesStack.empty() || parenthesesStack.top() != '(') {
+                return false;
+            }
+            parenthesesStack.pop();
+        } else {
+            return false; // Non-parenthesis character encountered
+        }
+
+        i++;
+    }
+
+    return parenthesesStack.empty(); // Check if all parentheses are matched
+}
+
+int main() {
+    cout << nestedParens("((()))") << endl;  // true (1)
+    cout << nestedParens("()") << endl;      // true (1)
+    cout << nestedParens("") << endl;        // true (1)
+
+    cout << nestedParens("((((") << endl;    // false (0)
+    cout << nestedParens("(()") << endl;     // false (0)
+    cout << nestedParens(")(") << endl;      // false (0)
+    cout << nestedParens("a(b)c") << endl;   // false (0)
+
+    return 0;
+}
+// This program will create a class called Profile that has a username and displayname. It will have methods to get the username, get the full name, and set the display name.
