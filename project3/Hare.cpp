@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
 #include "Hare.hpp"
 
 using namespace std;
