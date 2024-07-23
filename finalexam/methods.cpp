@@ -4,28 +4,16 @@
 
 using namespace std;
 
-class Cars{
-public: 
-    string modelname;
-    int modelnumber;
-    list<string> CarInvtory;
-
-    Cars(string modelname,int modelnumber){
-        this->modelname=modelname;
-        this->modelnumber=modelnumber;
-    }
-    void getInfo(){
-        cout<< "name of the car is " << modelname << endl;
-        cout << "ths is the model number " << modelnumber <<endl;
-        for(auto i : CarInvtory){
-            cout << i <<endl;
+class MyCar{
+    public:
+        void myMethod(){ //This method is inside of classes 
+            cout << "M4";
         }
-    }
-    void setInfo(string modelname,int modelnumber){
-        this->modelname=modelname;
-        this->modelnumber=modelnumber;
-    }
+        void carMethod();
 };
+void MyCar:: carMethod(){ //This method is outside of classes, if you want to make a method outside your classes you have 
+    cout << "GLE"; 
+}
 
 int main(){
     Cars obj1("BMW",3);
