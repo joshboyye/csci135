@@ -16,7 +16,7 @@ void MyCar:: carMethod(){ //This method is outside of classes, if you want to ma
 }
 
 int main(){
-    Cars obj1("BMW",3);
+    MyCar obj1("BMW",3);
     obj1.CarInvtory.push_back("M4");
     obj1.CarInvtory.push_back("i8");    
     obj1.getInfo();
